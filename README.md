@@ -1,28 +1,30 @@
-# SG Tickets - Sistema de Gestión 
+# ZenTech-Solutions
 
-Un Sistema de Gestión de Tickets (HelpDesk) diseñado específicamente para entornos universitarios. El proyecto se basa en una arquitectura Frontend puramente **MVC (Modelo-Vista-Controlador)** utilizando Vanilla JavaScript, sin frameworks adicionales.
+Un Sistema de Gestión de Tickets (HelpDesk) de nivel empresarial diseñado para atender incidencias tecnológicas a nivel global. Abarca soporte técnico, infraestructura de redes, desarrollo de software y ciberseguridad.
 
-La interfaz de usuario destaca por su diseño **Cyberpunk / Terminal UI**, utilizando paletas de colores oscuros, fuentes monoespaciadas (`Orbitron` y `Share Tech Mono`) y efectos visuales de terminal (scanlines, botones poligonales y acentos de neón).
+El proyecto se basa en una arquitectura Frontend puramente **MVC (Modelo-Vista-Controlador)** utilizando Vanilla JavaScript, sin frameworks adicionales.
 
-## Características
+La interfaz de usuario destaca por su diseño **Cyberpunk / Terminal UI**, utilizando paletas de colores oscuros, fuentes monoespaciadas (`Orbitron` y `Share Tech Mono`) y efectos visuales de terminal (scanlines, botones poligonales y acentos de neón), ideal para un entorno altamente técnico.
+
+## 🚀 Características
 
 * **Patrón de Arquitectura MVC Estricto**: Separación clara de responsabilidades entre Modelo (datos), Vista (DOM) y Controlador (lógica e intermediación).
-* **Interfaz "Terminal / Sci-Fi"**: Diseño moderno, inmersivo y responsivo.
+* **Interfaz "Terminal / Sci-Fi"**: Diseño moderno, inmersivo y responsivo, enfocado en profesionales de tecnología.
 * **Flujo Asíncrono Simulado**: El Modelo está preparado con promesas (`async/await`) para simular la latencia de una base de datos y facilitar la futura integración backend.
 * **Gestión de Tickets**:
-  * Creación de nuevos tickets (Asunto, Descripción, Departamento).
+  * Creación de nuevos tickets técnicos (Asunto, Descripción, Área de Soporte).
   * Listado en tiempo real de tickets activos.
   * Resolución de tickets (cambio de estado con actualización de interfaz).
   * Eliminación de tickets.
 
-## Stack Tecnológico
+## 🛠️ Stack Tecnológico
 
 El proyecto está desarrollado completamente en el Frontend utilizando tecnologías web estándar (Vanilla):
 - **HTML5**: Estructura semántica.
 - **CSS3**: Estilos personalizados, variables CSS, Flexbox, Grid y `clip-path` para formas geométricas.
 - **JavaScript (ES6+)**: Clases, Promesas, Async/Await.
 
-## Estructura del Proyecto
+## 📁 Estructura del Proyecto
 
 ```text
 SG_TICKETS/
@@ -39,26 +41,26 @@ SG_TICKETS/
         └── TicketController.js # Orquestador central
 ```
 
-## Instalación y Uso
+## ⚙️ Instalación y Uso
 
 Dado que es un proyecto Frontend puro (Sprint 1), no se requiere Node.js ni servidor de bases de datos.
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/sg-tickets-universidad.git
+   git clone https://github.com/tu-usuario/zentech-solutions.git
    ```
 2. Entra al directorio:
    ```bash
-   cd sg-tickets-universidad
+   cd zentech-solutions
    ```
 3. Abre el archivo `index.html` directamente en tu navegador web preferido, o utiliza una extensión como *Live Server* en VSCode.
 
-## Roadmap (Siguientes Pasos)
+## 🛣️ Roadmap (Siguientes Pasos)
 
 - [ ] **Sprint 2 - Integración de Base de Datos**: Reemplazar la memoria temporal del `TicketModel.js` con llamadas a una API REST / Base de datos real (Ej. Firebase, Supabase, o un backend propio en Node.js/Express) utilizando `fetch()`. Los métodos del modelo ya están preparados como funciones asíncronas para hacer esta transición transparente para la Vista y el Controlador.
 - [ ] Persistencia de sesión de usuario y autenticación.
-- [ ] Filtrado y paginación de tickets.
+- [ ] Filtrado y paginación de tickets por nivel de severidad y área.
 
-## Licencia
+## 📄 Licencia
 
 Este proyecto es de código abierto y está disponible bajo la [Licencia MIT](LICENSE).

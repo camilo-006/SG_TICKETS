@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestión de Tickets</title>
+    <title>ZenTech-Solutions - Soporte Técnico</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>SG Tickets - Universidad</h1>
+        <h1>ZenTech-Solutions</h1>
     </header>
 
     <main class="container">
@@ -18,19 +18,20 @@
             <form id="ticket-form">
                 <div class="form-group">
                     <label for="title">Asunto:</label>
-                    <input type="text" id="title" name="title" required placeholder="Ej: Falla en proyector Aula 204">
+                    <input type="text" id="title" name="title" required placeholder="Ej: Caída de servidor de base de datos, Bug en producción...">
                 </div>
                 <div class="form-group">
                     <label for="description">Descripción detallada:</label>
-                    <textarea id="description" name="description" rows="4" required placeholder="Describe el problema en detalle..."></textarea>
+                    <textarea id="description" name="description" rows="4" required placeholder="Describe el problema técnico en detalle..."></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="department">Departamento:</label>
+                    <label for="department">Área de Soporte:</label>
                     <select id="department" name="department" required>
-                        <option value="">Seleccione un departamento...</option>
-                        <option value="Soporte IT">Soporte IT</option>
-                        <option value="Mantenimiento">Mantenimiento General</option>
-                        <option value="Administración">Administración</option>
+                        <option value="">Seleccione un área...</option>
+                        <option value="Infraestructura">Infraestructura y Redes</option>
+                        <option value="Desarrollo">Desarrollo de Software</option>
+                        <option value="Soporte General">Soporte Técnico General</option>
+                        <option value="Ciberseguridad">Ciberseguridad</option>
                     </select>
                 </div>
                 <button type="submit" class="btn-primary">Registrar Ticket</button>
