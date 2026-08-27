@@ -1,42 +1,51 @@
+/* ================================================
+   SG_TICKETS — ESTILO ROBÓTICO / TERMINAL
+   ================================================ */
+
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
 
 :root {
-    --bg-primary: #0a0c10;
-    --bg-panel: #0d1117;
-    --bg-card: #101620;
-    --accent: #00e5ff;
-    --accent-dim: #00aacc;
-    --accent-glow: rgba(0, 229, 255, 0.15);
-    --green: #39ff14;
-    --green-dim: #1a7a00;
-    --danger: #ff2244;
-    --warning: #ffb700;
-    --text-primary: #c9d1d9;
-    --text-dim: #5a6070;
-    --border: #1e2a3a;
+    --bg-primary:    #0a0c10;
+    --bg-panel:      #0d1117;
+    --bg-card:       #101620;
+    --accent:        #00e5ff;
+    --accent-dim:    #00aacc;
+    --accent-glow:   rgba(0, 229, 255, 0.15);
+    --green:         #39ff14;
+    --green-dim:     #1a7a00;
+    --danger:        #ff2244;
+    --warning:       #ffb700;
+    --text-primary:  #c9d1d9;
+    --text-dim:      #5a6070;
+    --border:        #1e2a3a;
     --border-bright: #00e5ff44;
-    --font-mono: 'Share Tech Mono', 'Courier New', monospace;
-    --font-title: 'Orbitron', 'Share Tech Mono', monospace;
+    --font-mono:     'Share Tech Mono', 'Courier New', monospace;
+    --font-title:    'Orbitron', 'Share Tech Mono', monospace;
 }
 
 /* RESET */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+/* ── UTILS ────────────────────────────────────── */
+.hidden {
+    display: none !important;
 }
 
 /* ── BODY ─────────────────────────────────────── */
 body {
     background-color: var(--bg-primary);
     background-image:
-        repeating-linear-gradient(0deg,
+        repeating-linear-gradient(
+            0deg,
             transparent,
             transparent 2px,
-            rgba(0, 229, 255, 0.02) 2px,
-            rgba(0, 229, 255, 0.02) 4px);
+            rgba(0,229,255,0.02) 2px,
+            rgba(0,229,255,0.02) 4px
+        );
     color: var(--text-primary);
     font-family: var(--font-mono);
     min-height: 100vh;
@@ -57,22 +66,15 @@ header {
 header::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
+    bottom: 0; left: 0;
+    width: 100%; height: 2px;
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
     animation: scan-header 3s linear infinite;
 }
 
 @keyframes scan-header {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 header h1 {
@@ -96,18 +98,83 @@ header h1::before {
     max-width: 1100px;
     margin: 2rem auto;
     padding: 0 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
 }
 
-@media (min-width: 768px) {
-    .container {
-        grid-template-columns: 380px 1fr;
-    }
+#app-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
 }
 
-/* ── PANELES ──────────────────────────────────── */
+/* ── AUTH CONTAINER ───────────────────────────── */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border);
+    position: relative;
+    padding: 2rem;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+}
+
+.auth-box::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent var(--accent) transparent transparent;
+}
+
+.auth-toggle {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.auth-toggle a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.auth-toggle a:hover {
+    border-color: var(--accent);
+}
+
+.error-message {
+    color: var(--danger);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px dashed var(--danger);
+    background-color: rgba(255, 34, 68, 0.1);
+}
+
+/* ── PANELES Y NAVEGACIÓN ─────────────────────── */
+.app-nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+}
+
+.app-nav .btn-primary {
+    width: auto;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
+}
 .ticket-form-section,
 .ticket-list-section {
     background-color: var(--bg-panel);
@@ -122,10 +189,8 @@ header h1::before {
 .ticket-list-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
+    top: 0; right: 0;
+    width: 0; height: 0;
     border-style: solid;
     border-width: 0 16px 16px 0;
     border-color: transparent var(--accent) transparent transparent;
@@ -193,7 +258,7 @@ textarea:focus,
 select:focus {
     border-color: var(--accent);
     border-left-color: var(--accent);
-    box-shadow: 0 0 8px var(--accent-glow), inset 0 0 4px rgba(0, 229, 255, 0.05);
+    box-shadow: 0 0 8px var(--accent-glow), inset 0 0 4px rgba(0,229,255,0.05);
 }
 
 select option {
@@ -252,8 +317,7 @@ textarea {
 .ticket-item::after {
     content: attr(data-id);
     position: absolute;
-    top: 0.4rem;
-    right: 0.75rem;
+    top: 0.4rem; right: 0.75rem;
     font-size: 0.62rem;
     color: var(--text-dim);
     letter-spacing: 0.05em;
@@ -288,13 +352,13 @@ textarea {
 .ticket-status.pendiente {
     color: var(--warning);
     border-color: var(--warning);
-    background-color: rgba(255, 183, 0, 0.07);
+    background-color: rgba(255,183,0,0.07);
 }
 
 .ticket-status.resuelto {
     color: var(--green);
     border-color: var(--green);
-    background-color: rgba(57, 255, 20, 0.05);
+    background-color: rgba(57,255,20,0.05);
 }
 
 .ticket-body {
@@ -350,7 +414,7 @@ textarea {
 .btn-resolve:hover {
     background-color: var(--green);
     color: var(--bg-primary);
-    box-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+    box-shadow: 0 0 8px rgba(57,255,20,0.4);
 }
 
 .btn-delete {
@@ -361,11 +425,11 @@ textarea {
 .btn-delete:hover {
     background-color: var(--danger);
     color: #fff;
-    box-shadow: 0 0 8px rgba(255, 34, 68, 0.4);
+    box-shadow: 0 0 8px rgba(255,34,68,0.4);
 }
 
 /* ── LISTA VACÍA ──────────────────────────────── */
-#ticket-list>p {
+#ticket-list > p {
     color: var(--text-dim);
     font-size: 0.85rem;
     text-align: center;
@@ -374,7 +438,7 @@ textarea {
     letter-spacing: 0.05em;
 }
 
-#ticket-list>p::before {
+#ticket-list > p::before {
     content: '[ SYSTEM ] ';
     color: var(--accent-dim);
 }

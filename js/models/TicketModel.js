@@ -4,13 +4,26 @@ class TicketModel {
     }
 
     /**
-     * Obtiene todos los tickets.
+     * Obtiene los tickets de un usuario específico.
+     * @param {Object} currentUser - Objeto del usuario actual (con rol y departamento)
      * @returns {Promise<Array>} Lista de tickets
      */
-    async getTickets() {
+    async getTickets(currentUser) {
+        // Simulando latencia de red hacia la base de datos
         return new Promise((resolve) => {
             setTimeout(() => {
-                resolve([...this.tickets]);
+                if (currentUser.role === 'empleado') {
+                    // Administrador supremo ve todos
+                    if (currentUser.department === 'all') {
+                        resolve([...this.tickets]);
+                    } else {
+                        // El empleado solo ve los tickets asignados a su departamento
+                        resolve(this.tickets.filter(t => t.department === currentUser.department));
+                    }
+                } else {
+                    // El cliente solo ve los tickets que él mismo creó
+                    resolve(this.tickets.filter(t => t.author === currentUser.email));
+                }
             }, 100);
         });
     }
@@ -18,20 +31,22 @@ class TicketModel {
     /**
      * Crea un nuevo ticket en la base de datos.
      * @param {Object} ticketData - Datos del ticket a crear
+     * @param {string} userEmail - Autor del ticket
      * @returns {Promise<Object>} El ticket recién creado
      */
-    async createTicket(ticketData) {
+    async createTicket(ticketData, userEmail) {
         return new Promise((resolve) => {
             setTimeout(() => {
                 const newTicket = {
-                    id: Date.now().toString(),
+                    id: Date.now().toString(), // Generación de ID temporal
+                    author: userEmail,
                     title: ticketData.title,
                     description: ticketData.description,
                     department: ticketData.department,
-                    status: 'pendiente',
+                    status: 'pendiente', // Por defecto todos inician como pendientes
                     createdAt: new Date().toISOString()
                 };
-
+                
                 this.tickets.push(newTicket);
                 resolve(newTicket);
             }, 100);

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Admin",
+    "lastName": "Principal",
+    "email": "admin@zentech.com",
+    "password": "admin",
+    "role": "empleado",
+    "department": "all"
+  },
+  {
+    "name": "Técnico",
+    "lastName": "Redes",
+    "email": "infra@zentech.com",
+    "password": "123",
+    "role": "empleado",
+    "department": "Infraestructura"
+  },
+  {
+    "name": "Usuario",
+    "lastName": "Demo",
+    "email": "cliente@empresa.com",
+    "password": "123",
+    "role": "cliente"
+  }
+]
