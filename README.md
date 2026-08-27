@@ -10,12 +10,13 @@ La interfaz de usuario destaca por su diseño **Cyberpunk / Terminal UI**, utili
 
 * **Patrón de Arquitectura MVC Estricto**: Separación clara de responsabilidades entre Modelo (datos), Vista (DOM) y Controlador (lógica e intermediación).
 * **Interfaz "Terminal / Sci-Fi"**: Diseño moderno, inmersivo y responsivo, enfocado en profesionales de tecnología.
-* **Flujo Asíncrono Simulado**: El Modelo está preparado con promesas (`async/await`) para simular la latencia de una base de datos y facilitar la futura integración backend.
-* **Gestión de Tickets**:
-  * Creación de nuevos tickets técnicos (Asunto, Descripción, Área de Soporte).
-  * Listado en tiempo real de tickets activos.
-  * Resolución de tickets (cambio de estado con actualización de interfaz).
-  * Eliminación de tickets.
+* **Sistema de Autenticación Integrado (SPA)**: 
+  * Landing page (página de bienvenida) y formularios de Login / Registro.
+  * Gestión segura de ruteo y navegación utilizando la History API del navegador.
+* **Jerarquía de Usuarios (Permisos y Roles)**:
+  * **Clientes**: Pueden crear tickets y ver únicamente los tickets que ellos han creado en la pestaña "Mis Tickets".
+  * **Agentes/Empleados**: Tienen acceso a un "Panel de Agente" para visualizar los tickets correspondientes a su departamento. Tienen permisos exclusivos para marcar tickets como Resueltos o Eliminarlos.
+* **Flujo Asíncrono y Memoria Local**: El sistema utiliza variables en memoria y `LocalStorage` para persistir la creación de tickets y usuarios sin necesidad de una base de datos real o backend, manteniendo los métodos preparados con promesas (`async/await`) para la futura integración con PostgreSQL.
 
 ## Stack Tecnológico
 
@@ -28,17 +29,22 @@ El proyecto está desarrollado completamente en el Frontend utilizando tecnolog�
 
 ```text
 SG_TICKETS/
-├── index.html            # Archivo principal de la interfaz
+├── index.html            # Interfaz SPA con Landing, Auth y App
 ├── css/
-│   └── style.css         # Hoja de estilos (Estética Terminal/Robótica)
+│   └── style.css         # Hoja de estilos (Terminal/Robótica)
+├── data/
+│   └── users.json        # Archivo ignorado (.gitignore) con datos sensibles de DB
 └── js/
-    ├── app.js            # Punto de entrada (Inicialización del MVC)
+    ├── app.js            # Inyector de dependencias (MVC + Auth)
     ├── models/
+    │   ├── AuthModel.js  # Lógica de Login/Registro y persistencia local
     │   └── TicketModel.js # Manejo de datos y simulación asíncrona
     ├── views/
-    │   └── TicketView.js  # Manipulación del DOM y captura de eventos
+    │   ├── AuthView.js   # Manejo de DOM para autenticación y enrutado
+    │   └── TicketView.js # Manipulación del DOM y captura de eventos (Pestañas)
     └── controllers/
-        └── TicketController.js # Orquestador central
+        ├── AuthController.js # Orquestador de autenticación
+        └── TicketController.js # Orquestador central de tickets
 ```
 
 ## Instalación y Uso

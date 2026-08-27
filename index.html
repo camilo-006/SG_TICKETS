@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZenTech-Solutions - Soporte Técnico</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header style="display: flex; justify-content: space-between; align-items: center;">
         <h1>ZenTech-Solutions</h1>
-        <button id="logout-btn" class="btn-primary hidden" style="width: auto; padding: 0.4rem 1rem; border-color: var(--danger); color: var(--danger); font-size: 0.7rem;">[ DESCONECTAR ]</button>
+        <button id="logout-btn" class="btn-primary hidden"
+            style="width: auto; padding: 0.4rem 1rem; border-color: var(--danger); color: var(--danger); font-size: 0.7rem;">[
+            DESCONECTAR ]</button>
     </header>
 
     <!-- Landing Page (Bienvenida) -->
     <section id="landing-section" class="container auth-container" style="flex-direction: column; text-align: center;">
         <div style="max-width: 600px;">
-            <h1 style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; font-family: var(--font-title); text-transform: uppercase;">ZenTech-Solutions</h1>
+            <h1
+                style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; font-family: var(--font-title); text-transform: uppercase;">
+                ZenTech-Solutions</h1>
             <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 2rem; line-height: 1.8;">
-                Soporte técnico integral y de alto nivel. Resolvemos tus incidencias de infraestructura, desarrollo y ciberseguridad en cualquier parte del mundo.
+                Soporte técnico integral y de alto nivel. Resolvemos tus incidencias de infraestructura, desarrollo y
+                ciberseguridad en cualquier parte del mundo.
             </p>
-            <button id="btn-start" class="btn-primary" style="width: auto; padding: 1rem 2rem; font-size: 1.1rem;">INGRESAR / CREAR TICKET</button>
+            <button id="btn-start" class="btn-primary"
+                style="width: auto; padding: 1rem 2rem; font-size: 1.1rem;">INGRESAR / CREAR TICKET</button>
         </div>
     </section>
 
     <!-- Sección de Autenticación (Login / Registro) -->
     <section id="auth-section" class="container auth-container hidden">
-        
+
         <!-- Formulario de Login -->
         <div id="login-view" class="auth-box">
             <h2>[ INICIAR SESIÓN ]</h2>
@@ -40,7 +48,7 @@
                 </div>
                 <div id="login-error" class="error-message hidden"></div>
                 <button type="submit" class="btn-primary">Ingresar</button>
-                
+
                 <p class="auth-toggle">¿No tienes cuenta? <a href="#" id="go-to-register">Regístrate aquí</a></p>
             </form>
         </div>
@@ -75,11 +83,13 @@
 
     <!-- Sistema de Tickets (Oculto inicialmente) -->
     <main id="app-section" class="container hidden">
-        
+
         <!-- Navegación de la App -->
         <nav class="app-nav">
             <button id="nav-create-ticket" class="btn-primary">[ NUEVO TICKET ]</button>
-            <button id="nav-my-tickets" class="btn-primary" style="background-color: transparent; border-color: var(--text-dim); color: var(--text-dim);">[ MIS TICKETS ]</button>
+            <button id="nav-my-tickets" class="btn-primary"
+                style="background-color: transparent; border-color: var(--text-dim); color: var(--text-dim);">[ MIS
+                TICKETS ]</button>
         </nav>
 
         <!-- Formulario para crear un nuevo ticket -->
@@ -88,11 +98,13 @@
             <form id="ticket-form">
                 <div class="form-group">
                     <label for="title">Asunto:</label>
-                    <input type="text" id="title" name="title" required placeholder="Ej: Caída de servidor de base de datos, Bug en producción...">
+                    <input type="text" id="title" name="title" required
+                        placeholder="Ej: Caída de servidor de base de datos, Bug en producción...">
                 </div>
                 <div class="form-group">
                     <label for="description">Descripción detallada:</label>
-                    <textarea id="description" name="description" rows="4" required placeholder="Describe el problema técnico en detalle..."></textarea>
+                    <textarea id="description" name="description" rows="4" required
+                        placeholder="Describe el problema técnico en detalle..."></textarea>
                 </div>
                 <div class="form-group">
                     <label for="department">Área de Soporte:</label>
@@ -126,7 +138,8 @@
     <script src="js/models/TicketModel.js"></script>
     <script src="js/views/TicketView.js"></script>
     <script src="js/controllers/TicketController.js"></script>
-    
+
     <script src="js/app.js"></script>
 </body>
+
 </html>

@@ -24,3 +24,5 @@ Desktop.ini
 
 *.log
 user.json
+data/
+data/users.json
