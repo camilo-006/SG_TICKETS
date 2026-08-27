@@ -6,7 +6,7 @@ El proyecto se basa en una arquitectura Frontend puramente **MVC (Modelo-Vista-C
 
 La interfaz de usuario destaca por su diseño **Cyberpunk / Terminal UI**, utilizando paletas de colores oscuros, fuentes monoespaciadas (`Orbitron` y `Share Tech Mono`) y efectos visuales de terminal (scanlines, botones poligonales y acentos de neón), ideal para un entorno altamente técnico.
 
-## 🚀 Características
+## Características
 
 * **Patrón de Arquitectura MVC Estricto**: Separación clara de responsabilidades entre Modelo (datos), Vista (DOM) y Controlador (lógica e intermediación).
 * **Interfaz "Terminal / Sci-Fi"**: Diseño moderno, inmersivo y responsivo, enfocado en profesionales de tecnología.
@@ -17,14 +17,14 @@ La interfaz de usuario destaca por su diseño **Cyberpunk / Terminal UI**, utili
   * Resolución de tickets (cambio de estado con actualización de interfaz).
   * Eliminación de tickets.
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 El proyecto está desarrollado completamente en el Frontend utilizando tecnologías web estándar (Vanilla):
 - **HTML5**: Estructura semántica.
 - **CSS3**: Estilos personalizados, variables CSS, Flexbox, Grid y `clip-path` para formas geométricas.
 - **JavaScript (ES6+)**: Clases, Promesas, Async/Await.
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```text
 SG_TICKETS/
@@ -41,7 +41,7 @@ SG_TICKETS/
         └── TicketController.js # Orquestador central
 ```
 
-## ⚙️ Instalación y Uso
+## Instalación y Uso
 
 Dado que es un proyecto Frontend puro (Sprint 1), no se requiere Node.js ni servidor de bases de datos.
 
@@ -55,12 +55,12 @@ Dado que es un proyecto Frontend puro (Sprint 1), no se requiere Node.js ni serv
    ```
 3. Abre el archivo `index.html` directamente en tu navegador web preferido, o utiliza una extensión como *Live Server* en VSCode.
 
-## 🛣️ Roadmap (Siguientes Pasos)
+## Roadmap (Siguientes Pasos)
 
 - [ ] **Sprint 2 - Integración de Base de Datos**: Reemplazar la memoria temporal del `TicketModel.js` con llamadas a una API REST / Base de datos real (Ej. Firebase, Supabase, o un backend propio en Node.js/Express) utilizando `fetch()`. Los métodos del modelo ya están preparados como funciones asíncronas para hacer esta transición transparente para la Vista y el Controlador.
 - [ ] Persistencia de sesión de usuario y autenticación.
 - [ ] Filtrado y paginación de tickets por nivel de severidad y área.
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto es de código abierto y está disponible bajo la [Licencia MIT](LICENSE).
